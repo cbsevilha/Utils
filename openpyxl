@@ -1,0 +1,14 @@
+##Desprotege planilhas de Excel
+import openpyxl
+
+pastaExportacao,arquivoSelect,bucket = './exportacoes/','./select.exp','exportacoesparceiros'
+arquivoXlsx = "./planilhaProtegida.xlsx"
+planilha = 'Planilha1'
+
+wb = openpyxl.load_workbook(filename = arquivoXlsx)
+sheet = wb[planilha]
+
+with open(arquivoSelect,'r') as f:
+        select = f.read()
+
+wb.save(filename=arquivoXlsx+'- planilhaDesprotegida.xlsx')
