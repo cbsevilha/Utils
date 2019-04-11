@@ -1,0 +1,21 @@
+import boto3, sys, datetime, os
+
+s3 = boto3.client('s3')
+bucket = 'bucket'
+arquivos = os.walk('c:/caminho)
+
+for root, dirs, files in arquivos:
+    [s3.upload_file('c:/caminho/'+file, bucket, file+'/'+file+datetime.datetime.today().strftime('%Y%m%d')) for file in files]
+    
+    
+#########################################
+
+
+
+import sys, datetime, os
+
+arquivos = os.walk('C:/temp')
+
+for root,dirs,files in arquivos:
+    for arquivo in files:
+        print('\{}\{}'.format(root[3:],arquivo))
